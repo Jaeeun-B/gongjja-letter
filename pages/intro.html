@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="칼럼단 공짜 소개 - 사회적이고 철학적인 주제를 다루는 공동체" />
+  <title>소개 | 칼럼단 공짜</title>
+  
+  <!-- Fonts -->
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --color-bg: #FFF7F0;
+      --color-primary: #D92525;
+      --color-text: #002F6C;
+      --color-footer-bg: #002F6C;
+      --color-footer-text: #FEDD75;
+      --max-width: 800px;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 3rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      padding: var(--spacing-lg) 1rem;
+      padding-bottom: 8rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      color: var(--color-primary);
+      margin-bottom: 3rem;
+    }
+
+    .emoji {
+      font-family: 'Tossface', sans-serif;
+    }
+
+    .intro-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    p {
+      margin-bottom: var(--spacing-md);
+      word-break: keep-all;
+      font-size: 1.1rem;
+      line-height: 2;
+    }
+
+    .intro-content p:last-child {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-top: 2rem;
+      color: var(--color-primary);
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--color-footer-bg);
+      color: var(--color-footer-text);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--color-footer-text);
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--color-footer-text);
+      border-radius: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+      background-color: var(--color-footer-text);
+      color: var(--color-footer-bg);
+      outline: none;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 2rem 1rem 8rem;
+      }
+
+      h1 {
+        margin-bottom: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .intro-content p:last-child {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>칼럼단 공짜 소개 <span class="emoji">⚡️</span></h1>
+
+    <div class="intro-content">
+      <p>
+        비어 있는 '공空'에, <br>
+        우리는 문자 '자字'를 가져다 붙여 <br>
+        빈자리를 만드는 글을 씁니다.
+      </p>
+
+      <p>
+        금이 가서 틈이 생기면 <br>
+        아무도 발견하지 못하는 고요한 숨이 들어차겠지요<br>
+        멈추지 못하는 숨이 서서히 몰아닥치겠지요
+      </p>
+
+      <p>
+        그렇게 틈을 내어 숨을 쉽니다.
+      </p>
+
+      <p>
+        공짜!
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <a class="back-link" href="../index.html" aria-label="메인 페이지로 돌아가기">
+      <span class="emoji">←</span> 메인으로 돌아가기
+    </a>
+  </footer>
+</body>
+</html>

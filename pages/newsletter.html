@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="칼럼단 공짜 뉴스레터 신청 - 최신 칼럼과 소식을 받아보세요">
+  <title>뉴스레터 신청 | 칼럼단 공짜</title>
+
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/toss/tossface/dist/tossface.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #fff;
+      --color-primary: #D92525;
+      --color-text: #002F6C;
+      --color-success: #28a745;
+      --color-muted: #999;
+      --spacing-md: 2rem;
+      --spacing-lg: 3rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      padding: var(--spacing-md);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--color-primary);
+    }
+
+    .description {
+      text-align: center;
+      margin-bottom: var(--spacing-md);
+      font-size: 1.1rem;
+    }
+
+    .emoji {
+      font-family: 'Tossface', sans-serif;
+    }
+
+    .success-message {
+      display: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-success);
+      text-align: center;
+      margin-bottom: var(--spacing-md);
+      padding: 1rem;
+      background-color: rgba(40, 167, 69, 0.1);
+      border-radius: 8px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-wrapper {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #fafafa;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: opacity 0.3s ease;
+    }
+
+    .form-wrapper.submitted {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .home-link {
+      display: block;
+      text-align: center;
+      margin-top: var(--spacing-md);
+      color: var(--color-text);
+      text-decoration: underline;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+    }
+
+    .home-link:hover,
+    .home-link:focus {
+      color: var(--color-primary);
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: var(--spacing-lg);
+      padding-top: var(--spacing-md);
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      .form-wrapper { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>뉴스레터 신청</h1>
+    <p class="description">
+      칼럼단 공짜의 소식을 메일로 받아보세요 <span class="emoji">📮</span>
+    </p>
+
+    <div id="successMessage" class="success-message" role="alert">
+      <span class="emoji">🎉</span> 신청 완료! 곧 뉴스레터로 인사드릴게요 :)
+    </div>
+
+    <div id="formWrapper" class="form-wrapper">
+      <iframe 
+        data-tally-src="https://tally.so/embed/kdaKOR?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+        loading="lazy" 
+        width="100%" 
+        height="200" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0" 
+        title="[칼럼단 공짜] 월간레터 신청 폼"
+      ></iframe>
+    </div>
+
+    <a class="home-link" href="../index.html" aria-label="메인 페이지로 돌아가기">
+      <span class="emoji">←</span> 메인으로 돌아가기
+    </a>
+  </div>
+
+  <footer>
+    © 칼럼단 공짜. ALL RIGHTS RESERVED.
+  </footer>
+
+  <!-- Tally Widget Script -->
+  <script>
+    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+  </script>
+
+  <!-- Form Submission Handler -->
+  <script>
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'Tally.FormSubmitted') {
+        const successMessage = document.getElementById('successMessage');
+        const formWrapper = document.getElementById('formWrapper');
+        
+        successMessage.classList.add('show');
+        formWrapper.classList.add('submitted');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>
